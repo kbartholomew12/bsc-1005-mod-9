@@ -403,7 +403,7 @@
           <img src="assets/pedigree-patterns.png" alt="Pedigree patterns infographic comparing autosomal recessive and autosomal dominant inheritance." />
           <div class="figure-caption">Use this reference to compare the clues in your family case before choosing the inheritance pattern.</div>
         </div>
-        <div class="case-banner">
+        <div class="case-banner" style="grid-template-columns:1fr;">
           <div>
             <div class="case-title" id="pedTitle">Family Pedigree</div>
             <p id="pedScenario"></p>
@@ -411,7 +411,6 @@
               <span>□ male</span><span>○ female</span><span>filled = affected</span><span>half-filled = carrier</span>
             </div>
           </div>
-          <div class="svg-wrap"><div id="pedigreeSvg"></div></div>
         </div>
         <div class="question-card">
           <label for="pedPattern">Which inheritance pattern best fits this pedigree?</label>
@@ -786,7 +785,6 @@
       qs('pedScenario').innerHTML = pattern==='autosomal recessive'
         ? 'Two unaffected parents have an affected child. Males and females can both be affected. Some family members may be carriers without showing the trait.'
         : 'Affected individuals appear in each generation. An affected child usually has an affected parent. Males and females can both be affected.';
-      qs('pedigreeSvg').innerHTML = pattern==='autosomal recessive' ? pedigreeRecessiveSvg() : pedigreeDominantSvg();
     }
     function pedigreeRecessiveSvg(){
       return `<svg viewBox="0 0 460 260" role="img" aria-label="Autosomal recessive pedigree">
@@ -860,27 +858,15 @@
     }
 
     function renderSexLinked(){
-      qs('sexCase').innerHTML = `<div><div class="case-title">X-Linked Recessive Vision Trait</div><p>A carrier female with typical vision has children with a male with typical vision.</p><p><strong>Xᴺ</strong> = typical vision &nbsp; <strong>Xⁿ</strong> = color vision trait<br><strong>Parent cross:</strong> XᴺXⁿ × XᴺY</p></div><div class="svg-wrap">${xySvg()}</div>`;
+      qs('sexCase').innerHTML = `<div>
+          <div class="case-title">X-Linked Recessive Vision Trait</div>
+          <p>A carrier female with typical vision has children with a male with typical vision.</p>
+          <p><strong>Xᴺ</strong> = typical vision &nbsp; <strong>Xⁿ</strong> = color vision trait<br><strong>Parent cross:</strong> XᴺXⁿ × XᴺY</p>
+        </div>
+        <div class="station-figure" style="margin:0;">
+          <img src="assets/x-linked-recessive-alleles.png" alt="X-linked recessive alleles graphic showing a carrier female with XN and Xn chromosomes crossed with a normal male with XN and Y chromosomes." />
+        </div>`;
       qs('sexPunnett').innerHTML = renderSexPunnett();
-    }
-    function xySvg(){
-      return `<svg viewBox="0 0 430 230" role="img" aria-label="X and Y chromosomes">
-        <rect x="14" y="16" width="402" height="198" rx="26" fill="#f8fafc" stroke="#d7e0ec" stroke-width="3"/>
-        <text x="215" y="48" text-anchor="middle" font-size="20" font-weight="900" fill="#2b1613">Sex-linked alleles are carried on sex chromosomes</text>
-        <g transform="translate(86,72)">
-          <path d="M36 0 L94 120 M94 0 L36 120" stroke="#bf311a" stroke-width="18" stroke-linecap="round"/>
-          <text x="65" y="152" text-anchor="middle" font-size="24" font-weight="900">Xᴺ</text>
-        </g>
-        <g transform="translate(238,72)">
-          <path d="M36 0 L94 120 M94 0 L36 120" stroke="#3b82f6" stroke-width="18" stroke-linecap="round"/>
-          <text x="65" y="152" text-anchor="middle" font-size="24" font-weight="900">Xⁿ</text>
-        </g>
-        <g transform="translate(342,82)">
-          <path d="M15 0 L42 58 L69 0" stroke="#2b1613" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M42 58 L42 108" stroke="#2b1613" stroke-width="16" stroke-linecap="round"/>
-          <text x="42" y="146" text-anchor="middle" font-size="24" font-weight="900">Y</text>
-        </g>
-      </svg>`;
     }
     function renderSexPunnett(){
       const rows=['Xᴺ','Y'], cols=['Xᴺ','Xⁿ'];
