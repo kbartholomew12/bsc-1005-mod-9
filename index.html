@@ -313,13 +313,12 @@
             <div class="figure-caption">This second graphic previews how meiosis explains the gametes that appear in a dihybrid cross.</div>
           </div>
         </div>
-        <div class="case-banner">
+        <div class="case-banner" style="grid-template-columns:1fr;">
           <div>
             <div class="case-title">Two-Trait Cross</div>
             <p><strong>Parent cross:</strong> RrYy × RrYy</p>
             <p><strong>R</strong> = round seed, <strong>r</strong> = wrinkled seed<br><strong>Y</strong> = yellow seed, <strong>y</strong> = green seed</p>
           </div>
-          <div class="svg-wrap"> <div id="chromosomeSvg"></div></div>
         </div>
         <div class="question-card">
           <h3>Gamete check</h3>
@@ -742,26 +741,6 @@
     }
 
     function renderDi(){
-      qs('chromosomeSvg').innerHTML = `<svg viewBox="0 0 480 260" role="img" aria-label="Independent assortment during meiosis">
-        <rect x="15" y="18" width="450" height="224" rx="26" fill="#f8fafc" stroke="#d7e0ec" stroke-width="3"/>
-        <text x="240" y="48" text-anchor="middle" font-size="20" font-weight="900" fill="#2b1613">Meiosis I: chromosome pairs can line up different ways</text>
-        <g transform="translate(70,78)">
-          <text x="70" y="0" text-anchor="middle" font-size="14" font-weight="800" fill="#5f6b7a">Option A</text>
-          <path d="M46 22 c-22 36 -22 80 0 116" stroke="#bf311a" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M94 22 c22 36 22 80 0 116" stroke="#3b82f6" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M150 22 c-22 36 -22 80 0 116" stroke="#bf311a" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M198 22 c22 36 22 80 0 116" stroke="#3b82f6" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <text x="70" y="165" text-anchor="middle" font-size="18" font-weight="900">RY or ry</text>
-        </g>
-        <g transform="translate(270,78)">
-          <text x="70" y="0" text-anchor="middle" font-size="14" font-weight="800" fill="#5f6b7a">Option B</text>
-          <path d="M46 22 c-22 36 -22 80 0 116" stroke="#bf311a" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M94 22 c22 36 22 80 0 116" stroke="#3b82f6" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M150 22 c-22 36 -22 80 0 116" stroke="#3b82f6" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <path d="M198 22 c22 36 22 80 0 116" stroke="#bf311a" stroke-width="14" fill="none" stroke-linecap="round"/>
-          <text x="70" y="165" text-anchor="middle" font-size="18" font-weight="900">Ry or rY</text>
-        </g>
-      </svg>`;
       qs('diPunnett').innerHTML = renderPunnett4();
     }
     function renderPunnett4(){
